@@ -1,6 +1,7 @@
 * {
   margin: 0;
   font-family: $font-main;
+  /* font smoothing 모질라 - font가 좀더 부드럽게 처리되는 컴퓨터에는 적용됨. */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;

@@ -1,6 +1,6 @@
 @mixin responsive($screen) {
   @if ($screen == 'T') {
-    @madia screen and (min-width: $md-breakpoint) {
+    @media screen and (min-width: $md-breakpoint) {
       @content;
     }
   }

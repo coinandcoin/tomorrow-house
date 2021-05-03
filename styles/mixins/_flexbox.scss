@@ -1,0 +1,44 @@
+//key: value -> map
+$flex-map: (
+  start: flex-start,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  stretch: stretch,
+  center: center,
+);
+
+@function _get-flex-vaule($key) {
+  @return map-get($flex-map, $key);
+  /*@if ($key == start) {
+        @return flex-start;
+    }
+    @if ($key == end) {
+        @return flex-end;
+    }*/
+  // flex-strat -> start
+  // flex-end -> end
+  // space-between -> between
+  // space-around -> around
+  // stretch -> stretch
+  // center -> center
+}
+
+@mixin flexbox($jc: center, $ai: center) {
+  display: flex;
+  align-items: _get-flex-vaule($ai);
+  justify-content: _get-flex-vaule($jc);
+}
+
+@mixin inline-flexbox($jc: center, $ai: center) {
+  display: inline-flex;
+  align-items: _get-flex-vaule($ai);
+  justify-content: _get-flex-vaule($jc);
+}
+
+@mixin coloumn-flexbox($jc: center, $ai: center) {
+  display: flex;
+  flex-direction: column;
+  align-items: _get-flex-vaule($ai);
+  justify-content: _get-flex-vaule($jc);
+}

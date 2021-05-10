@@ -30,9 +30,14 @@ button,
 input,
 select,
 textarea {
+  /* white로 해도 되지만 투명으로 해도 좋다 */
   background-color: transparent;
+  /* border:none으로 해도 되지만 0으로 하면 좀 더 시크해 보인다 */
   border: 0;
-
+  /* button:focus, 
+    input:focus,
+    select:focus,
+    textarea:focus를 sass 문법으로 쓰면.. <<&:focus>>로 할 수 있다.*/
   &:focus {
     box-shadow: none;
     outline: none;
@@ -40,7 +45,8 @@ textarea {
 }
 
 a,
-button {
+button,
+select {
   cursor: pointer;
 }
 

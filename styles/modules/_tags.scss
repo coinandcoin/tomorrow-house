@@ -1,3 +1,6 @@
+/* Sass에서 제공하는 placehoder(%)를 사용 : mixin처럼 반복되는 코드를 사용하지 않겠다. 
+그럼 용도는 ? 플레이스홀더는 인자를 받을 수 없다. 확장성이 떨어짐. 
+연관되어 있는 친구들끼리 공동스타일이 있을 때 상속받는 식으로 작업한다.*/
 %tag-base {
   //공통 스타일
   @include inline-flexbox;
@@ -9,6 +12,7 @@
 }
 
 .tag-red {
+  //placeholder를 사용하기 위해선 include가 아닌 extend를 사용한다.
   @extend %tag-base;
   color: $white;
   background-color: $red;

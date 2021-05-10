@@ -7,66 +7,6 @@
   font-style: normal;
   font-display: block; }
 
-i {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'tomorrow' !important;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.ic-bell:before {
-  content: '\e900'; }
-
-.ic-bookmark:before {
-  content: '\e901'; }
-
-.ic-bookmark-filled:before {
-  content: '\e902'; }
-
-.ic-caret:before {
-  content: '\e903'; }
-
-.ic-cart:before {
-  content: '\e904'; }
-
-.ic-check:before {
-  content: '\e905'; }
-
-.ic-chevron:before {
-  content: '\e906'; }
-
-.ic-close:before {
-  content: '\e907'; }
-
-.ic-community:before {
-  content: '\e908'; }
-
-.ic-expert:before {
-  content: '\e909'; }
-
-.ic-lock:before {
-  content: '\e90a'; }
-
-.ic-menu:before {
-  content: '\e90b'; }
-
-.ic-new:before {
-  content: '\e90c'; }
-
-.ic-search:before {
-  content: '\e90d'; }
-
-.ic-star:before {
-  content: '\e90e'; }
-
-.ic-store:before {
-  content: '\e90f'; }
-
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -399,8 +339,14 @@ button,
 input,
 select,
 textarea {
+  /* white로 해도 되지만 투명으로 해도 좋다 */
   background-color: transparent;
-  border: 0; }
+  /* border:none으로 해도 되지만 0으로 하면 좀 더 시크해 보인다 */
+  border: 0;
+  /* button:focus, 
+    input:focus,
+    select:focus,
+    textarea:focus를 sass 문법으로 쓰면.. <<&:focus>>로 할 수 있다.*/ }
   button:focus,
   input:focus,
   select:focus,
@@ -409,7 +355,8 @@ textarea {
     outline: none; }
 
 a,
-button {
+button,
+select {
   cursor: pointer; }
 
 ul,
@@ -417,6 +364,48 @@ ol {
   padding-left: 0;
   list-style: none; }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important; }
+
+@media screen and (min-width: 768px) {
+  .sm-only {
+    display: none !important; } }
+
+@media screen and (max-width: 768px -1) {
+  .md-only {
+    display: none !important; } }
+
+@media screen and (min-width: 1200px) {
+  .md-only {
+    display: none !important; } }
+
+@media screen and (max-width: 1200px -1) {
+  .lg-only {
+    display: none !important; } }
+
+@media screen and (max-width: 768px -1) {
+  .sm-hidden {
+    display: none !important; } }
+
+@media screen and (min-width: 768px) and (max-width: 1200px -1) {
+  .md-hidden {
+    display: none !important; } }
+
+@media screen and (min-width: 1200px) {
+  .lg-hidden {
+    display: none !important; } }
+
+/* Sass에서 제공하는 placehoder(%)를 사용 : mixin처럼 반복되는 코드를 사용하지 않겠다. 
+그럼 용도는 ? 플레이스홀더는 인자를 받을 수 없다. 확장성이 떨어짐. 
+연관되어 있는 친구들끼리 공동스타일이 있을 때 상속받는 식으로 작업한다.*/
 .tag-red, .tag-green, .tag-gray {
   display: inline-flex;
   align-items: center;
@@ -480,12 +469,17 @@ ol {
 .star-rating-24 {
   font-size: 24px; }
 
-.price-16 .amount, .price-20 .amount, .price-32 .amount, .price-off .amount {
-  font-family: "Tahoma", sans-serif;
-  line-height: 1; }
-
-.price-16 .currency, .price-20 .currency, .price-32 .currency, .price-off .currency {
-  font-family: "Noto Sans KR", sans-serif; }
+.price-16,
+.price-20,
+.price-32, .price-off {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start; }
+  .price-16 .amount, .price-20 .amount, .price-32 .amount, .price-off .amount {
+    font-family: "Tahoma", sans-serif;
+    line-height: 1; }
+  .price-16 .currency, .price-20 .currency, .price-32 .currency, .price-off .currency {
+    font-family: "Noto Sans KR", sans-serif; }
 
 .price-16,
 .price-20,
@@ -712,13 +706,73 @@ ol {
       .pagination .page-item button:hover {
         color: #3da5f5; }
 
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tomorrow' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.ic-bell:before {
+  content: '\e900'; }
+
+.ic-bookmark:before {
+  content: '\e901'; }
+
+.ic-bookmark-filled:before {
+  content: '\e902'; }
+
+.ic-caret:before {
+  content: '\e903'; }
+
+.ic-cart:before {
+  content: '\e904'; }
+
+.ic-check:before {
+  content: '\e905'; }
+
+.ic-chevron:before {
+  content: '\e906'; }
+
+.ic-close:before {
+  content: '\e907'; }
+
+.ic-community:before {
+  content: '\e908'; }
+
+.ic-expert:before {
+  content: '\e909'; }
+
+.ic-lock:before {
+  content: '\e90a'; }
+
+.ic-menu:before {
+  content: '\e90b'; }
+
+.ic-new:before {
+  content: '\e90c'; }
+
+.ic-search:before {
+  content: '\e90d'; }
+
+.ic-star:before {
+  content: '\e90e'; }
+
+.ic-store:before {
+  content: '\e90f'; }
+
 /*  (( Responsive Grid System ))
 * MOBILE Break-Point (<768px) ----------------------------------------
 * fixture(별명)                   sm
 * # of columns                    4                              
 * gutter                          20px
 * margin                          5px
-* container-size                  100% -(5px*2)  
+* container-size                  100% -(5px*2)  (-> container : 그리드가 시작하는 영역을 잡아주는 친구)
 
 * TABLET Break-Point (>=768px) ---------------------------------------
 * fixture(별명)                   md
@@ -726,7 +780,7 @@ ol {
 * gutter                          20px
 * margin                          30px
 * container-size                  100% -(30px*2) - unit값이 고정적이지 않다.
-* max-container-size              960px
+* max-container-size              960px (-> max-width가 960px이어야 한다.)
 
 * DESKTOP Break-Point (>=1200px) --------------------------------------
 * fixture(별명)                   lg
@@ -737,6 +791,10 @@ ol {
 * container-size                  1140px - unit 값이 고정적이다.
 * max-container-size              1140px
 */
+/* $md-breakpoint: 768px; 
+-> _responsive.scss를 만들기 위해 _breakpoints.scss로 변수를 옮김.*/
+/* $lg-breakpoint: 1200px;
+-> _responsive.scss를 만들기 위해 _breakpoints.scss로 변수를 옮김.*/
 /* container : 그리드가 시작하는 영역을 잡아주는 친구*/
 .container {
   width: 100%;
@@ -744,6 +802,8 @@ ol {
   padding: 0 5px;
   margin: 0 auto;
   /* TABLET Break-Point (>=768px) */
+  /* @media screen and (min-width: $md-breakpoint) 
+  -> @mixin responsive($screen)로 인해 @include하면 됨 */
   /* DESKTOP Break-Point (>=1200px */ }
   .container .row {
     display: flex;

@@ -34,6 +34,7 @@
   letter-spacing: $letter-spacing-24;
 }
 
+//통합형 믹싱~!!
 @mixin text-style($size, $color: false) {
   @if ($size == 12) {
     @include text-style-12;
@@ -54,7 +55,7 @@
     @include text-style-24;
   }
 
-  @if (type-of($color) == color) {
+  @if (type-of($color) == color /*유효성검사*/) {
     color: $color;
   }
 }

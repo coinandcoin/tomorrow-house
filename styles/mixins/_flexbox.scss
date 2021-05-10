@@ -1,4 +1,4 @@
-//key: value -> map
+//key: value -> Map -> $flex-map: (); 의 형태로 만들면 된다.
 $flex-map: (
   start: flex-start,
   end: flex-end,
@@ -9,7 +9,7 @@ $flex-map: (
 );
 
 @function _get-flex-vaule($key) {
-  @return map-get($flex-map, $key);
+  @return map-get($flex-map, $key); //map-get()은 Sass가 제공하는 내장함수
   /*@if ($key == start) {
         @return flex-start;
     }

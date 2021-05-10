@@ -7,7 +7,7 @@
   background-color: $white;
   border: 1px solid $border;
   border-radius: 4px;
-  appearance: none;
+  appearance: none; //아래화살표 없애줌
   transition: background-color 200ms ease-in-out;
 
   &::placeholder {

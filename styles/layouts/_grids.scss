@@ -4,7 +4,7 @@
 * # of columns                    4                              
 * gutter                          20px
 * margin                          5px
-* container-size                  100% -(5px*2)  
+* container-size                  100% -(5px*2)  (-> container : 그리드가 시작하는 영역을 잡아주는 친구)
 
 * TABLET Break-Point (>=768px) ---------------------------------------
 * fixture(별명)                   md
@@ -12,7 +12,7 @@
 * gutter                          20px
 * margin                          30px
 * container-size                  100% -(30px*2) - unit값이 고정적이지 않다.
-* max-container-size              960px
+* max-container-size              960px (-> max-width가 960px이어야 한다.)
 
 * DESKTOP Break-Point (>=1200px) --------------------------------------
 * fixture(별명)                   lg
@@ -23,16 +23,22 @@
 * container-size                  1140px - unit 값이 고정적이다.
 * max-container-size              1140px
 */
+// 한국에서 가장 많이 사용하는 해상도는 1920*1080 이다.
 
 $gutter: 20px;
 
+// mobile에선 unit을 px로 고정하지않고 %로 한다. mobile은 기종마다 해상도가 다 다르기 때문이다.
 $sm-columns: 4;
 $sm-margin: 5px;
 
+/* $md-breakpoint: 768px; 
+-> _responsive.scss를 만들기 위해 _breakpoints.scss로 변수를 옮김.*/
 $md-columns: 12;
 $md-margin: 30px;
 $md-max-container: 960px + $md-margin * 2;
 
+/* $lg-breakpoint: 1200px;
+-> _responsive.scss를 만들기 위해 _breakpoints.scss로 변수를 옮김.*/
 $lg-columns: 12;
 $lg-unit: 75px;
 $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
@@ -49,7 +55,7 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
     flex-wrap: wrap;
   }
 
-  // .col-sm-1 .col-md-2 .col-lg-3 : col-은 항상 양옆에 margin을 갖기에 padding을 준다.
+  //col-은 항상 양옆에 margin을 갖기에 padding을 준다.
   [class^='col-'] {
     padding: 0 $gutter/2;
   }
@@ -61,6 +67,8 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
   }
 
   /* TABLET Break-Point (>=768px) */
+  /* @media screen and (min-width: $md-breakpoint) 
+  -> @mixin responsive($screen)로 인해 @include하면 됨 */
   @include responsive(T) {
     max-width: $md-max-container;
     padding: 0 $md-margin;
@@ -73,6 +81,7 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
   }
 
   /* DESKTOP Break-Point (>=1200px */
+  // @media screen and (min-width: $lg-breakpoint)
   @include responsive(D) {
     max-width: $lg-max-container;
     padding: 0;

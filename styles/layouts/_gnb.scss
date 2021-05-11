@@ -7,15 +7,12 @@
     height: 50px;
   }
 
-  .logo {
-    @include pos-center;
-    a {
-      display: block;
+  &-right {
+    .button-group {
+      @include flexbox(end);
     }
-    img {
-      display: block;
-      width: auto;
-      height: 20px;
+    &-search-button {
+      margin-right: 4px;
     }
   }
 
@@ -31,11 +28,65 @@
     color: $blue;
   }
 
-  .button-group {
-    @include flexbox(end);
+  .logo {
+    @include pos-center;
+    a {
+      display: block;
+    }
+    img {
+      display: block;
+      width: auto;
+      height: 20px;
+    }
   }
 
-  &-search-button {
-    margin-right: 4px;
+  @include responsive(T) {
+    // > 768px
+    &-left {
+      @include flexbox(start);
+    }
+
+    &-right {
+      @include flexbox(end);
+
+      .button-group {
+        margin-right: 24px;
+
+        .gnb-icon-button {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    &-wrapper {
+      height: 80px;
+    }
+
+    .logo {
+      position: static;
+      transform: none;
+      margin-right: 32px;
+
+      img {
+        height: 24px;
+      }
+    }
+
+    .btn-primary {
+      width: 88px;
+      i {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    // 1200px
+    &-right {
+      .input-group {
+        width: 264px;
+        margin-right: 24px;
+      }
+    }
   }
 }

@@ -22,3 +22,11 @@
     transform: translate(-50%, -50%);
   }
 }
+
+@mixin pos-top-right($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    top: 0;
+    right: 0;
+  }
+}

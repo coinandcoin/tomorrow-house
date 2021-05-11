@@ -4,14 +4,15 @@
   height: 32px;
   font-size: 24px;
   color: $secondary;
-    transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 
   &.is-menu {
     color: $blue;
 
     &:active {
-        $blue-dark;  
-    } 
+      color: $blue-dark;
+    }
+  }
 
   &:active {
     color: $primary;

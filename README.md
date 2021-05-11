@@ -9,28 +9,76 @@
 | o      | x      | o       | .md-hidden |
 | o      | o      | x       | .lg-hidden |
 
-## 꽃
+# 내일의 집
 
-김춘수
+### 1. GNB
 
-내가 그의 이름을 불러주기 전에는
-그는 다만
-하나의 몸짓에 지나지 않았다.
+- 로그인을 하지 않은 경우
 
-내가 그의 이름을 불러주었을 때,
-그는 나에게로 와서
-꽃이 되었다.
+```html
+<div class="button-group">
+  <button
+    class="gnb-icon-button is-search lg-hidden"
+    type="button"
+    aria-label="검색창열기버튼"
+  >
+    <i class="ic-search"></i>
+  </button>
+  <a
+    href="#"
+    class="gnb-icon-button is-cart"
+    aria-label="장바구니 페이지로 이동"
+  >
+    <i class="ic-cart"></i>
+  </a>
+  <div class="gnb-auth sm-hidden">
+    <a href="/">로그인</a>
+    <a href="/">회원가입</a>
+  </div>
+</div>
+```
 
-내가 그의 이름을 불러준 것처럼
-나의 이 빛깔과 향기에 알맞는
-누가 나의 이름을 불러다오.
+- 로그인을 했을 경우
 
-그에게로 가서 나도
-그의 꽃이 되고 싶다.
-
-우리들은 모두
-무엇이 되고 싶다.
-너는 나에게 나는 너에게
-잊혀지지 않는 하나의 눈짓이 되고 싶다.
-
----> Sass에선 변수를 선언할땐 반드시 $를 사용한다.
+```html
+<div class="button-group">
+  <button
+    class="gnb-icon-button is-search lg-hidden"
+    type="button"
+    aria-label="검색창열기버튼"
+  >
+    <i class="ic-search"></i>
+  </button>
+  <a
+    href="#"
+    class="gnb-icon-button sm-hidden"
+    aria-label="스크랩북 페이지로 이동"
+  >
+    <i class="ic-bookmark"></i>
+  </a>
+  <a
+    href="#"
+    class="gnb-icon-button sm-hidden"
+    aria-label="내 소식 페이지로 이동"
+  >
+    <i class="ic-bell"></i>
+  </a>
+  <a
+    href="#"
+    class="gnb-icon-button is-cart"
+    aria-label="장바구니 페이지로 이동"
+  >
+    <i class="ic-cart"></i>
+    <strong class="badge">5</strong>
+  </a>
+  <button
+    class="gnb-avatar-button sm-hidden"
+    type="button"
+    aria-label="나의메뉴 열기버튼"
+  >
+    <div class="avatar-32">
+      <img src="./assets/images/img-user-01.jpg" alt="내이미지" />
+    </div>
+  </button>
+</div>
+```

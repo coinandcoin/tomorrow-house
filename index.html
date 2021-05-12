@@ -173,15 +173,22 @@
             <div class="avatar-24">
               <img src="./assets/images/img-user-01.jpg" alt="사딸라 아저씨" />
             </div>
+            <!--이름이 길어서 overflow을 생각해야 할때 : 
+              1. .avatar-24 { flex-shrink: 0;
+                              flex-grow: 0;  }
+              2. .sidebar .usernamer { flex-grow: 1;
+                                       overflow: hidden;
+                                       text-overflow: ellipsis;
+                                       white-space: nowrap;}-->
             <strong class="username">사달라</strong>
           </a>
         </div>
 
         <!-- NOTE: 로그인을 하지 않은 경우 -->
-        <div class="sidebar-auth">
+        <!-- <div class="sidebar-auth">
           <a class="btn-outlined btn-40" href="/">로그인</a>
           <a class="btn-primary btn-40" href="/">회원가입</a>
-        </div>
+        </div> -->
       </header>
 
       <nav class="sidebar-nav">

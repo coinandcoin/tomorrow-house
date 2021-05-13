@@ -25,6 +25,7 @@
 
   &-item {
     position: relative;
+    border-radius: 2px;
 
     .word-button {
       @include text-style(16, $primary);
@@ -34,15 +35,23 @@
       font-weight: 400;
     }
 
-    .delete-button {
-      @include flexbox;
-      position: absolute;
-      top: 6px;
-      right: 0;
-      width: 32px;
-      height: 32px;
-      @include text-style(16, $tertiary);
-      font-weight: 400;
+    &:hover {
+      background-color: $background;
+    }
+  }
+
+  .delete-button {
+    @include flexbox;
+    position: absolute;
+    top: 6px;
+    right: 0;
+    width: $colse-button-size;
+    height: $colse-button-size;
+    @include text-style(16, $tertiary);
+    font-weight: 400;
+
+    &:hover {
+      color: $black;
     }
   }
 }

@@ -4,9 +4,7 @@
 
   overflow-x: auto;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  @include no-scrollbar;
 
   &-list {
     //position: relative;

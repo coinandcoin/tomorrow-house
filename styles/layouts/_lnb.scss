@@ -1,17 +1,23 @@
 .lnb {
+  $lnb-link-padding: 8px;
+  $grid-margin: $sm-margin + $gutter / 2;
+
   overflow-x: auto;
-  border-bottom: 1px solid $border;
 
   &::-webkit-scrollbar {
     display: none;
   }
 
   &-list {
-    position: relative;
-    left: -8px;
+    //position: relative;
+    //left: -8px;
+    height: 40px;
+    margin-left: -#{$grid-margin};
+    padding-left: 0 #{$grid-margin - $lnb-link-padding};
     @include inline-flexbox(start);
     //width: max-content; 호환성에 문제 있음.
     white-space: nowrap;
+    border-bottom: 1px solid $border;
   }
 
   &-item {
@@ -20,7 +26,7 @@
     &.is-active {
       a {
         color: $blue;
-        border-bottom: 2px solid $blue;
+        border-bottom-color: $blue;
       }
     }
 
@@ -28,12 +34,9 @@
       @include inline-flexbox;
       @include text-style(13, $dark);
       height: 40px;
-      padding: 10px 8px;
+      padding: 10px $lnb-link-padding;
       font-weight: 700;
-    }
-
-    .ic-new {
-      color: $red;
+      border-bottom: 2px solid transparent;
     }
   }
 }
